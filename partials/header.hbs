@@ -1,0 +1,21 @@
+<nav class="site-nav">
+    <div class="inner">
+        {{#if @blog.navigation}}
+            {{navigation}}
+        {{/if}}
+        <a class="subscribe-button icon-feed square fill-horizontal" href="{{@blog.url}}/rss/"><span class="screen-reader-text">Subscribe</span></a>
+    </div><!-- .inner -->
+</nav><!-- .site-nav -->
+
+<header class="site-header fadeInDown delay_05s">
+    <div class="inner">
+        {{#if @blog.logo}}
+        <h1 class="site-title"><a href="{{@blog.url}}"><img src="{{@blog.logo}}" /></a></h1>
+        {{else}}
+        <h1 class="site-title"><a class="logo-text" href="{{@blog.url}}">{{@blog.title}}</a></h1>
+        {{/if}}
+        {{#if @blog.description}}
+        <p class="site-description">{{@blog.description}}</p>
+        {{/if}}
+    </div><!-- .inner -->
+</header><!-- .site-header -->

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{! Document Settings }}
+    <meta charset="utf-8">
+
+    {{! Page Meta }}
+    <title>{{meta_title}}</title>
+    <meta name="description" content="{{meta_description}}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="{{asset "/favicon.ico"}}">
+
+    {{! Styles }}
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic" />
+    <link rel="stylesheet" type="text/css" href="{{asset "css/style.css"}}" />
+
+    {{! Theme settings }}
+    <script type="text/javascript">
+        var disqus_shortname = 'my_disqus_shortname', // replace my_disqus_shortname with your shortname
+            latest_posts_count = 5; // change the latest posts number
+    </script>
+
+    {{! Ghost outputs important style and meta data with this tag }}
+    {{ghost_head}}
+</head>
+<body class="{{body_class}}">
+    <div id="page" class="site">
+        {{! The tag below includes the theme header - partials/header.hbs }}
+        {{> header}}
+
+        {{! Everything else gets inserted here }}
+        {{{body}}}
+
+        {{! The tag below includes the theme footer - partials/footer.hbs }}
+        {{> footer}}
+    </div><!-- #page -->
+
+    {{! Ghost outputs important scripts and data with this tag }}
+    {{ghost_foot}}
+
+    {{! JavaScript files }}
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="{{asset "js/plugins.js"}}"></script>
+    <script type="text/javascript" src="{{asset "js/custom.js"}}"></script>
+</body>
+</html>

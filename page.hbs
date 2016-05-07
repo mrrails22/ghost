@@ -1,0 +1,35 @@
+{{!< default}}
+{{! The tag above means - insert everything in this file into the {body} of the default.hbs template }}
+
+<main class="site-main">
+    <div class="inner">
+
+        <div class="site-content fadeInDown delay_075s">
+            {{! Everything inside the #post tags pulls data from the page }}
+            {{#post}}
+            <article class="{{post_class}}">            
+                <header class="entry-header">    
+                    <div class="entry-header-wrap">
+                        {{#if image }}
+                        <div class="post-thumbnail"><img src="{{image}}" alt="{{title}}"></div>
+                        {{/if}}
+                        <h1 class="entry-title">{{title}}</h1>
+                    </div>
+                </header><!-- .entry-header -->
+                <div class="entry-content">
+                    {{content}}
+                </div><!-- .entry-content -->
+                {{#if tags}}
+                <footer class="entry-footer">
+                    <div class="tag-links">Tags: {{tags separator=""}}</div>
+                </footer><!-- .entry-footer -->
+                {{/if}}                
+            </article><!-- .post -->
+            {{/post}}
+        </div><!-- .site-content -->
+
+        {{! The tag below includes the theme sidebar - partials/sidebar.hbs }}
+        {{> sidebar}}
+
+    </div><!-- .inner -->
+</main><!-- .site-main -->

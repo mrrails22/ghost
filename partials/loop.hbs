@@ -1,0 +1,29 @@
+{{! This is the post loop - each post will be output using this markup }}
+{{#foreach posts}}
+    <article class="{{post_class}}">
+        <header class="entry-header">    
+            <div class="entry-header-wrap">
+                {{#if image }}
+                <a href="{{url}}" class="post-thumbnail"><img src="{{image}}" alt="{{title}}"></a>
+                {{/if}}
+                <h2 class="entry-title"><a href="{{url}}" rel="bookmark">{{title}}</a></h2>
+            </div>
+            <div class="entry-meta">
+                {{#if featured}}<span class="featured-post icon-star" aria-hidden="true"></span>{{/if}}
+                by <span class="post-author">{{author}}</span> on <time class="published" datetime="{{date format='YYYY-MM-DD'}}">{{date format="MMMM DD, YYYY"}}</time>
+            </div><!-- .entry-meta -->
+        </header><!-- .entry-header -->
+        <div class="entry-content">
+            <p>{{excerpt words="100"}}&hellip;</p>
+            <p class="read-more"><a class="more-link" href="{{url}}">Read More</a></p>
+        </div><!-- .entry-content -->
+        {{#if tags}}
+        <footer class="entry-footer">
+            <div class="tag-links">Tags: {{tags separator=""}}</div>
+        </footer><!-- .entry-footer -->
+        {{/if}}
+    </article><!-- .post -->
+{{/foreach}}
+
+{{! Previous/next page links - displayed on every page }}
+{{pagination}}

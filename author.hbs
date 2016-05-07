@@ -1,0 +1,44 @@
+{{!< default}}
+{{! The tag above means - insert everything in this file into the {body} of the default.hbs template }}
+
+{{! The main content area on the author page }}
+<main class="site-main">
+    <section class="inner">
+
+        <div class="site-content fadeInDown delay_075s">        
+            {{! Everything inside the #author tags pulls data from the author }}
+            {{#author}}
+            <header class="page-header">
+                <div class="author-box">
+                    <div class="author-info">
+                        {{#if image}}
+                        <div class="author-image">
+                            <div class="author-avatar" style="background-image: url({{image}})"><span class="screen-reader-text">{{name}}'s Picture</span></div>
+                        </div>
+                        {{/if}}
+                        <div class="author-details">
+                            <h4 class="author-title">About {{name}}</h4>
+                            {{#if bio}}
+                            <p class="author-bio">{{bio}}</p>
+                            {{/if}}
+                            {{#if location}}
+                            <span class="author-location"><i class="icon-map-marker" aria-hidden="true"></i> {{location}}</span>
+                            {{/if}}
+                            {{#if website}}
+                            <span class="author-website"><i class="icon-chain" aria-hidden="true"></i> <a href="{{website}}" target="_blank">{{website}}</a></span>
+                            {{/if}}
+                            <span class="author-stats"><i class="icon-signal" aria-hidden="true"></i> {{plural ../pagination.total empty='No posts' singular='% post' plural='% posts'}}</span>
+                        </div>
+                    </div><!-- .author-info -->
+                </div><!-- .author-box -->
+            </header><!-- .page-header -->
+            {{/author}}
+            {{! The tag below includes the post loop - partials/loop.hbs }}
+            {{> "loop"}}
+        </div><!-- .site-content -->
+
+        {{! The tag below includes the theme sidebar - partials/sidebar.hbs }}
+        {{> sidebar}}
+
+    </section><!-- .inner -->
+</main><!-- .site-main -->

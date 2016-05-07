@@ -1,0 +1,26 @@
+{{!< default}}
+{{! The tag above means - insert everything in this file into the {body} of the default.hbs template }}
+
+{{! The main content area on the error page }}
+<main class="site-main">
+    <section class="inner">
+        
+        <div class="site-content fadeInDown delay_075s">
+        	<div class="not-found">
+        		<header class="entry-header">
+        			<div class="entry-header-wrap">
+                        <div class="post-thumbnail"><img src="{{asset "images/404.jpg"}}" alt="{{title}}"></div>
+                    	<h1 class="entry-title">404: Page Not Found</h1>
+					</div>        		
+				</header><!-- .entry-header -->
+        		<div class="entry-content">
+					<p>Apologies, but the page you requested could not be found. <br /><a class="error-link" href="{{@blog.url}}">Go to the front page &rarr;</a></p>
+				</div><!-- .entry-content -->
+        	</div><!-- .not-found -->			
+		</div><!-- .site-content -->
+
+		{{! The tag below includes the theme sidebar - partials/sidebar.hbs }}
+		{{> sidebar}}
+
+    </section><!-- .inner -->
+</main><!-- .site-main -->
